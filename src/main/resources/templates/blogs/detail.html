@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>投稿一覧</title>
+    <title>detail</title>
 </head>
+
 <body>
     <div class="menu-wrapper">
         <input type="checkbox" id="menu-toggle" hidden>
-        
+
         <label class="menu-icon" for="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
         </label>
-        
+
         <div class="overlay"></div>
-        
+
         <nav class="menu">
             <ul>
-            <li><a href="blogs">Home</a></li>
-            <li><a href="blogs/new">New Post</a></li>
-            <li><a href="blogs/profile">profile</a></li>
+                <li><a href="/blogs">Home</a></li>
+                <li><a href="/blogs/new">New Post</a></li>
+                <li><a href="/blogs/profile">profile</a></li>
             </ul>
         </nav>
     </div>
-
-    <h1>Blog</h1>
+     <h1>Blog</h1>
     <hr><hr>
-    <h1>Home</h1>
-    <div th:each="blog : ${blog}">
-        <h1> <a th:href="@{/blogs/{id}(id=${blog.id})}" th:text="${blog.name}"> </a></h1>
-        <!-- <span th:text="${blog.title}"></span>
-        <span th:text="${blog.text}"></span> -->
+    <h1>detail</h1>
+
+
+    <div class="details">
+        <h1 th:text="${blog.name}"> </h1>
         <hr>
+        <p th:text="${blog.title}"></p>
+        <p th:text="${blog.text}"></p>
     </div>
-    
+
 </body>
+
 </html>

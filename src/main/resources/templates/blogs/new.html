@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>All Blogs</title>
+</head>
+
+<body>
+    <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" hidden>
+
+        <label class="menu-icon" for="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <div class="overlay"></div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="/blogs">Home</a></li>
+                <li><a href="/blogs/new">New Post</a></li>
+                <li><a href="/blogs/profile">profile</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>Blog</h1>
+    <hr>
+    <hr>
+    <h1>New Post</h1>
+    <div class="text">
+        <ul th:each="Blog : ${blog}">
+            <span th:text="${Blog.name}"></span>
+        </ul>
+        <form action="/blogs" method="post">
+            <p><input type="name" name="name" placeholder="名前"></p>
+            <p><input type="title" name="title" placeholder="タイトル"></p>
+            <p><textarea type="text" name="text" placeholder="テキスト"></textarea></p>
+            <p><button>投稿</button></p>
+        </form>
+
+    </div>
+</body>
+
+</html>
