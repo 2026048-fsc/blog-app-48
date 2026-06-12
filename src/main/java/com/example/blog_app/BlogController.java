@@ -23,9 +23,14 @@ public class BlogController {
         this.blogService=blogService;
     }
 
+    @GetMapping("/")//メインページに返す
+    public String blog() {
+        return "redirect:/blogs";//redirectで/blogsのGetMappingに送ることで一覧画面になる
+    }
+    
     @GetMapping("/blogs")
     public String blogs(Model model) {
-        model.addAttribute("blog", blogService.findAll());
+        model.addAttribute("blog", blogService.findAll());/** */
         return "blogs";
     }
     @GetMapping("/blogs/new")

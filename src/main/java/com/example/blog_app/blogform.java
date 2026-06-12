@@ -1,6 +1,6 @@
 package com.example.blog_app;
 import java.sql.Date;
-public class blogform {
+public class blogform {//送る要素のクラス
     private String name;
     private String title;
     private String text;

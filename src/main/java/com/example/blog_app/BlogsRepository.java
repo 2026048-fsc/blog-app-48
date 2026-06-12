@@ -15,15 +15,15 @@ public class BlogsRepository {
     }
 
     public List<Blog> findAll() {
-        return jdbcClient.sql("SELECT id,name,title,text FROM blog ")
-                .query(Blog.class)
-                .list();
+        return jdbcClient.sql("SELECT id,name,title,text FROM blog ")//id,name,title,textを呼び出す
+                .query(Blog.class)//Blogクラスにする
+                .list();//リストにする
 
     }
 
     public void save(Blog blog) {
         jdbcClient.sql("INSERT INTO blog(name,title,text)VALUES(:name,:title,:text)")
-                .param("name", blog.getName())
+                .param("name", blog.getName())//nameにBlogインスタンスに入っているnameを入れる
                 .param("title", blog.getTitle())
                 .param("text", blog.getText())
                 .update();
