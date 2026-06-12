@@ -38,8 +38,8 @@
             <span th:text="${Blog.name}"></span>
         </ul>
         <form action="/blogs" method="post">
-            <p><input type="name" name="name" placeholder="名前"></p>
-            <p><input type="title" name="title" placeholder="タイトル"></p>
+            <p><input type="text" name="name" placeholder="名前"></p>
+            <p><input type="text" name="title" placeholder="タイトル"></p>
             <p><textarea type="text" name="text" placeholder="テキスト"></textarea></p>
             <p><button>投稿</button></p>
         </form>
